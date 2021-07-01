@@ -41,3 +41,27 @@ function readBook(book) {
     this.pages = pages;
     this.read = read;
   }
+
+  function localStorageSetter() {
+    for (let i = 0; i < myLibrary.length; i += 1) {
+      const book = myLibrary[i];
+      if (book !== undefined) {
+        localStorage.setItem(`book${i + 1}`, JSON.stringify(book));
+      }
+    }
+  }
+  
+  function changeReadButton(btnRead) {
+    btnRead.addEventListener('click', (e) => {
+      const i = e.target.id.split('').pop();
+      if (e.target.innerHTML === 'Read') {
+        myLibrary[i].read = false;
+        e.target.innerHTML = 'Not Read';
+      } else {
+        myLibrary[i].read = true;
+        e.target.innerHTML = 'Read';
+      }
+      localStorageSetter();
+    });
+  }
+  
