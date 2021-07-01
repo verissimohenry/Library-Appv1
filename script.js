@@ -124,3 +124,18 @@ function displayBooks() {
         displayBook(i);
     }
 }
+
+function localStorageGetter() {
+    for (let i = 0; i <= localStorage.length; i += 1) {
+      const book = localStorage.getItem(`book${i}`);
+      const newbook = JSON.parse(book);
+      if (newbook != null) {
+        myLibrary.push(newbook);
+      } else {
+        localStorage.removeItem(`book${i}`);
+      }
+    }
+    if (myLibrary.length > 0) {
+      displayBooks();
+    }
+  }
