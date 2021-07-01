@@ -127,15 +127,43 @@ function displayBooks() {
 
 function localStorageGetter() {
     for (let i = 0; i <= localStorage.length; i += 1) {
-      const book = localStorage.getItem(`book${i}`);
-      const newbook = JSON.parse(book);
-      if (newbook != null) {
-        myLibrary.push(newbook);
-      } else {
-        localStorage.removeItem(`book${i}`);
-      }
+        const book = localStorage.getItem(`book${i}`);
+        const newbook = JSON.parse(book);
+        if (newbook != null) {
+            myLibrary.push(newbook);
+        } else {
+            localStorage.removeItem(`book${i}`);
+        }
     }
     if (myLibrary.length > 0) {
-      displayBooks();
+        displayBooks();
     }
-  }
+}
+localStorageGetter();
+
+function addBookToLibrary(title, author, pages, image) {
+    if (title.length > 0 && author.length > 0 && pages.length > 0) {
+        const book = new Book(title, author, pages, image);
+        myLibrary.push(book);
+        const i = myLibrary.length;
+        localStorage.setItem(`book${i}`, JSON.stringify(book));
+        document.getElementById('title').value = '';
+        document.getElementById('author').value = '';
+        document.getElementById('pages').value = '';
+        document.getElementById('image').value = '';
+        displayBook();
+    } else {
+        openForm();
+    }
+}
+
+submit.addEventListener('click', () => {
+    title = document.getElementById('title').value;
+    author = document.getElementById('author').value;
+    pages = document.getElementById('pages').value;
+    image = document.getElementById('image').value;
+    if (image.length === 0) {
+        image = 'https://st4.depositphotos.com/14953852/24787/v/600/depositphotos_247872612-stock-illustration-no-image-available-icon-vector.jpg';
+    }
+    addBookToLibrary(title, author, pages, image);
+});
