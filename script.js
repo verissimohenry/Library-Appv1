@@ -20,3 +20,24 @@ function openForm() {
 button.addEventListener('click', openForm);
 submit.addEventListener('click', openForm);
 closeButton.addEventListener('click', openForm);
+
+function readBook(book) {
+    if (book) {
+      return 'Read';
+    }
+    return 'Not Read';
+  }
+  
+  function Book(
+    title,
+    author,
+    pages,
+    image = 'https://st4.depositphotos.com/14953852/24787/v/600/depositphotos_247872612-stock-illustration-no-image-available-icon-vector.jpg',
+    read = false,
+  ) {
+    this.image = image;
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+    this.read = read;
+  }
