@@ -120,9 +120,9 @@ function displayBook(i = myLibrary.length - 1) {
 }
 
 function displayBooks() {
-    for (let i = 0; i < myLibrary.length; i += 1) {
-        displayBook(i);
-    }
+  for (let i = 0; i < myLibrary.length; i += 1) {
+    displayBook(i);
+  }
 }
 
 function localStorageGetter() {
