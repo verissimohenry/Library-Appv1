@@ -15,9 +15,6 @@ In this project, we built a basic web-based library application using JavaScript
 
 - Web Browser
 
-## Live link
-
-[Live demo]()
 
 ## Getting Started
 
