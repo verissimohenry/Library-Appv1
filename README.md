@@ -2,8 +2,8 @@
 
 In this project, we built a basic web-based library application using JavaScript. One can add books to the library, delete the books and mark the book as read. We use local storage to store the data from the user.
 
-![screenshot](images/Screenshot from 2021-07-02 13-21-02.png)
-![screenshot]()
+![screenshot](images/image.png)
+![screenshot](images/image2.png)
 
 ## Built With
 
