@@ -30,7 +30,14 @@ $ git clone git@github.com:verissimohenry/Library-Appv1.git
 
 ```
 $ cd LibraryAppV1
-```
+
+## Setup
+
+```run `npm install` to install all required node modules
+
+## Usage
+
+double click on  `index.html` to open project in new browser window`
 
 ## Authors
 
