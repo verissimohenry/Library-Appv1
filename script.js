@@ -40,6 +40,9 @@ function Book(
   this.author = author;
   this.pages = pages;
   this.read = read;
+  this.info = function () {
+    console.log(`${title} by ${author}, ${pages} pages, ${this.read}`);
+  };
 }
 
 function localStorageSetter() {

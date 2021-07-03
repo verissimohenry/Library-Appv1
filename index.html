@@ -21,16 +21,27 @@
         <div>
             <button id="close-button" class="btn btn-danger form2">X</button>
             <div class="input-group my-2">
-                <span class="input-group-text"><i class="fa fa-book" aria-hidden="true"></i></span>
+                <span class="input-group-text"></span>
+                <i class="fa fa-book" aria-hidden="true"></i>
+                </span>
                 <input type="text" class="form-control" name="title" id="title" placeholder="Book title" required />
             </div>
             <div class="input-group my-2">
                 <span class="input-group-text">
-                    <i class="fas fa-image" aria-hidden="true"></i></span>
+                    <i class="fa fa-user" aria-hidden="true"></i>
+                </span>
+                <input type="text" class="form-control" name="author" id="author" placeholder="Author" required />
+            </div>
+            <div class="input-group my-2">
+                <span class="input-group-text">
+                    <i class="fas fa-image" aria-hidden="true"></i>
+                </span>
                 <input type="text" class="form-control" name="image" id="image" placeholder="Enter image url" />
             </div>
             <div class="input-group my-2">
-                <span class="input-group-text"><i class="fa fa-file" aria-hidden="true"></i></span>
+                <span class="input-group-text">
+                    <i class="fa fa-file" aria-hidden="true"></i>
+                </span>
                 <input type="number" class="form-control" name="pages" id="pages" required placeholder="Pages" />
             </div>
             <input id="submit-book" class="btn btn-primary w-100" type="submit" value="Add Book" />
