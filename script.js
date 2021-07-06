@@ -28,22 +28,15 @@ function readBook(book) {
   return 'Not Read';
 }
 
-function Book(
+const Book = (
   title,
   author,
   pages,
   image = 'https://st4.depositphotos.com/14953852/24787/v/600/depositphotos_247872612-stock-illustration-no-image-available-icon-vector.jpg',
   read = false,
-) {
-  this.image = image;
-  this.title = title;
-  this.author = author;
-  this.pages = pages;
-  this.read = read;
-  this.info = function () {
-    console.log(`${title} by ${author}, ${pages} pages, ${this.read}`);
-  };
-}
+) => {
+  return { title, author, pages, image, read };
+};
 
 function localStorageSetter() {
   for (let i = 0; i < myLibrary.length; i += 1) {
@@ -54,7 +47,7 @@ function localStorageSetter() {
   }
 }
 
-function changeReadButton(btnRead) {
+const changeReadButton = (btnRead) => {
   btnRead.addEventListener('click', (e) => {
     const i = e.target.id.split('').pop();
     if (e.target.innerHTML === 'Read') {
@@ -66,7 +59,19 @@ function changeReadButton(btnRead) {
     }
     localStorageSetter();
   });
-}
+};
+
+const destroyBook = (btnDestroy) => {
+  btnDestroy.addEventListener("click", (e) => {
+    let i = e.target.id.split("").pop();
+    i = parseInt(i, 10);
+    myLibrary.splice(i, 1);
+    document.querySelector(`#card-${i}`).remove();
+    localStorage.clear();
+    localStorageSetter();
+  });
+};
+
 
 function displayBook(i = myLibrary.length - 1) {
   const card = document.createElement('div');
@@ -110,14 +115,7 @@ function displayBook(i = myLibrary.length - 1) {
   cardBodyBottom.appendChild(btnRead);
   cardBodyBottom.appendChild(btnDestroy);
 
-  btnDestroy.addEventListener('click', (e) => {
-    let i = e.target.id.split('').pop();
-    i = parseInt(i, 10);
-    myLibrary.splice(i, 1);
-    document.querySelector(`#card-${i}`).remove();
-    localStorage.clear();
-    localStorageSetter();
-  });
+  destroyBook(btnDestroy);
 
   changeReadButton(btnRead);
 }
