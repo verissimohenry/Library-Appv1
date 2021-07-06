@@ -36,7 +36,13 @@ const Book = (
   read = false
 ) => {
 
-  return { title, author, pages, image, read };
+  return {
+    title,
+    author,
+    pages,
+    image,
+    read
+  };
 
 };
 
