@@ -35,7 +35,7 @@ const Book = (
   image = 'https://st4.depositphotos.com/14953852/24787/v/600/depositphotos_247872612-stock-illustration-no-image-available-icon-vector.jpg',
   read = false,
 ) => {
-  return { title, author, pages, image, read };
+   return { title, author, pages, image, read };
 };
 
 function localStorageSetter() {
@@ -62,8 +62,8 @@ const changeReadButton = (btnRead) => {
 };
 
 const destroyBook = (btnDestroy) => {
-  btnDestroy.addEventListener("click", (e) => {
-    let i = e.target.id.split("").pop();
+  btnDestroy.addEventListener('click', (e) => {
+    let i = e.target.id.split('').pop();
     i = parseInt(i, 10);
     myLibrary.splice(i, 1);
     document.querySelector(`#card-${i}`).remove();
@@ -71,7 +71,6 @@ const destroyBook = (btnDestroy) => {
     localStorageSetter();
   });
 };
-
 
 function displayBook(i = myLibrary.length - 1) {
   const card = document.createElement('div');
