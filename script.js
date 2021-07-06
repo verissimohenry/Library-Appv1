@@ -33,10 +33,8 @@ const Book = (
   author,
   pages,
   image = "https://st4.depositphotos.com/14953852/24787/v/600/depositphotos_247872612-stock-illustration-no-image-available-icon-vector.jpg",
-  read = false
-) => {
-  return { title, author, pages, image, read };
-};
+  read = false,
+) => { return { title, author, pages, image, read };};
 
 function localStorageSetter() {
   for (let i = 0; i < myLibrary.length; i += 1) {
